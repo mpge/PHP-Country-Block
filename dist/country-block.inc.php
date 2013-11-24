@@ -49,11 +49,8 @@ class countryBlock {
     // Save IPInfoDB API Key to $api_key
     $this->api_key = $api_key;
     
-    // Bind Visitors IP Address to variable
-    $ip_address = $this->ipInfo->getIPAddress();
-    
-    // Save IP Address ($ip_address) to $ip_address
-    $this->ip_address = $ip_address;
+    // Save IP Address $ip_address
+    $this->ip_address = $this->ipInfo->getIPAddress();
     
     // Check if cookie exists
     if($this->cookieCheck())
@@ -96,11 +93,8 @@ class countryBlock {
     */
   function countryCheck($country)
   {
-    // Get IP Address from local variable
-    $ip_address = $this->ip_address;
-    
     // Get Country from ipInfo API
-    $userCountry = $this->ipInfo->getCountry($ip_address);
+    $userCountry = $this->ipInfo->getCountry($this->ip_address);
     
     // Find Country Code!
     $countryCode = $userCountry['countryCode'];
@@ -127,10 +121,7 @@ class countryBlock {
     *
     */
   function cookieCheck()
-  {
-    // Get IP Address from local variable
-    $ip_address = $this->ip_address;
-    
+  {    
     if(!isset($_COOKIE['ip_not_allowed'])))
     {
       return true;
