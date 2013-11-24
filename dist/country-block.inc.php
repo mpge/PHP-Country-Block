@@ -130,7 +130,7 @@ class countryBlock {
   }
   
   /**
-    * cookieCheck()
+    * setCookie()
     *
     * Sets cookie and returns true
     *
