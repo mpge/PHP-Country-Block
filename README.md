@@ -52,4 +52,4 @@ You could essentially put that code into a sort-of-like check.php page, make it 
 
 Now for the ban hammer...
 
-![][http://i.imgur.com/yqx3WRB.png]
+![](http://i.imgur.com/yqx3WRB.png)
