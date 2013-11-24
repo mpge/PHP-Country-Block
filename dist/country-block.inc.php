@@ -41,7 +41,7 @@ class countryBlock {
     $ipInfo = new ipInfo($api_key);
   
     // Save Countries to $countries
-    $this->country = $countries;
+    $this->countries = $countries;
     
     // Save IPInfoDB API Key to $api_key
     $this->api_key = $api_key;
@@ -56,7 +56,7 @@ class countryBlock {
     if(cookieCheck())
     {
       // returned true... cookie does not exist
-      foreach($countries as $country)
+      foreach($this->countries as $country)
       {
         // return true or false
         $blockable = $this->countryCheck($c);
