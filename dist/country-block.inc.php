@@ -96,11 +96,8 @@ class countryBlock {
     // Get Country from ipInfo API
     $userCountry = $this->ipInfo->getCountry($this->ip_address);
     
-    // Find Country Code!
-    $countryCode = $userCountry['countryCode'];
-    
     // Compare...
-    if($country == $countryCode)
+    if($country == $userCountry['countryCode'])
     {
       // Should block
       return true;
