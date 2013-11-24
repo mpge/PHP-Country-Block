@@ -13,6 +13,8 @@ Utilizes the [PHP wrapper IP-User-Location](http://github.com/beingtomgreen/IP-U
 
 ##Usage
 
+To download [Click Here](https://github.com/MatthewGross/PHP-Country-Block/archive/stable.zip) and unzip the file, and paste all files within the dist directory, in the directory of your choosing.
+
 In order to utilize this class. Simply create an array of [2-letter country codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm), and pass the array to the class with your IPInfoDB API Key and a path to the IPInfoDB Library (Optional: Only if changed!)
 
 <b>Example:</b>
