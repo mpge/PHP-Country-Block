@@ -1,11 +1,11 @@
 PHP-Country-Block
 =================
 
-Uses the http://ipinfodb.com/ip_location_api.php (ipinfodb.com ip location api) to block certain countries of your choosing.
+Uses the [ipinfodb.com IP Location API](http://ipinfodb.com/ip_location_api.php) to block certain countries of your choosing.
 
-User must have an API Key from ipinfodb.com
+User must have an API Key from [ipinfodb.com](http://ipinfodb.com/register.php)
 
-Utilizes the [PHP wrapper IP-User-Location](http://github.com/beingtomgreen/IP-User-Location) for ipinfodb.com
+Utilizes the [PHP wrapper IP-User-Location](http://github.com/beingtomgreen/IP-User-Location) for ipinfodb.com interactions.
 
 ##Links
 [License for IP-User-Location](http://beingtomgreen.mit-license.org/)<br>
