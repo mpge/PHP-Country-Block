@@ -59,7 +59,7 @@ class countryBlock {
       foreach($this->countries as $country)
       {
         // return true or false
-        $blockable = $this->countryCheck($c);
+        $blockable = $this->countryCheck($country);
         // check
         if($blockable)
         {
