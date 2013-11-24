@@ -16,9 +16,6 @@ class countryBlock {
   // Store Country
   private $countries = null;
   
-  // Store IPInfoDB API Key
-  private $api_key = null;
-  
   // Store Visitors IP Address
   private $ip_address = null;
   
@@ -35,7 +32,7 @@ class countryBlock {
     * @return true/false - true if ip has been blocked, false if ip has not been blocked and is permitted.
     * 
     */
-  function __construct($countries, $api_key, $path_to_script = '')
+  public function __construct($countries, $api_key, $path_to_script = '')
   {
     // Include ipInfo.inc.php with or without path
     include($path_to_script.'ipInfo.inc.php');
@@ -45,9 +42,6 @@ class countryBlock {
   
     // Save Countries to $countries
     $this->countries = $countries;
-    
-    // Save IPInfoDB API Key to $api_key
-    $this->api_key = $api_key;
     
     // Save IP Address $ip_address
     $this->ip_address = $this->ipInfo->getIPAddress();
@@ -60,6 +54,7 @@ class countryBlock {
       {
         // return true or false
         $blockable = $this->countryCheck($country);
+        
         // check
         if($blockable)
         {
@@ -91,7 +86,7 @@ class countryBlock {
     * @return true/false - true if same, false if not
     *
     */
-  function countryCheck($country)
+  protected function countryCheck($country)
   {
     // Get Country from ipInfo API
     $userCountry = $this->ipInfo->getCountry($this->ip_address);
@@ -117,7 +112,7 @@ class countryBlock {
     * @return true/false - true if not set, false if is set
     *
     */
-  function cookieCheck()
+  protected function cookieCheck()
   {    
     if(!isset($_COOKIE['ip_not_allowed'])))
     {
@@ -137,7 +132,7 @@ class countryBlock {
     * @return true
     *
     */
-  function setCookie()
+  protected function setCookie()
   {
     setcookie('ip_not_allowed', 'true');
     $_COOKIE['ip_not_allowed'] = 'true';
