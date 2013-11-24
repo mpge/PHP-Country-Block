@@ -13,8 +13,6 @@
 
 class countryBlock {
 
-
-
   // Store Country
   private $countries = null;
   
@@ -34,7 +32,6 @@ class countryBlock {
     */
   function __construct($countries, $api_key, $path_to_script = null)
   {
-  
     // Include ipInfo.inc.php with or without path
     if($path_to_script)
     {
@@ -46,7 +43,7 @@ class countryBlock {
     }
     
     // new ipInfo class with api_key from parameters
-    $ipInfo = new ipInfo($api_key)l
+    $ipInfo = new ipInfo($api_key);
   
     // Save Countries to $countries
     $this->country = $countries;
@@ -66,7 +63,6 @@ class countryBlock {
       // returned true... cookie does not exist
       foreach($countries as $country)
       {
-        
         // return true or false
         $blockable = $this->countryCheck($c);
         // check
@@ -81,16 +77,13 @@ class countryBlock {
           // don't block
           return false;
         }
-        
       }
-    
     }
     else
     {
       // don't block
       return false;
     }
-    
   }
   
   /**
@@ -105,7 +98,6 @@ class countryBlock {
     */
   function countryCheck($country)
   {
-    
     // Get IP Address from local variable
     $ip_address = $this->ip_address;
     
@@ -126,7 +118,6 @@ class countryBlock {
       // Shouldn't block
       return false;
     }
-    
   }
   
   /**
@@ -139,7 +130,6 @@ class countryBlock {
     */
   function cookieCheck()
   {
-    
     // Get IP Address from local variable
     $ip_address = $this->ip_address;
     
@@ -149,7 +139,6 @@ class countryBlock {
     else {
       return false;
     }
-    
   }
   
   /**
