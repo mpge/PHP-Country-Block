@@ -32,17 +32,10 @@ class countryBlock {
     * @return true/false - true if ip has been blocked, false if ip has not been blocked and is permitted.
     * 
     */
-  function __construct($countries, $api_key, $path_to_script = null)
+  function __construct($countries, $api_key, $path_to_script = '')
   {
     // Include ipInfo.inc.php with or without path
-    if($path_to_script)
-    {
-      include($path_to_script.'ipInfo.inc.php');
-    }
-    else
-    {
-      include('ipInfo.inc.php');
-    }
+    include($path_to_script.'ipInfo.inc.php');
     
     // new ipInfo class with api_key from parameters
     $ipInfo = new ipInfo($api_key);
