@@ -62,12 +62,8 @@ class countryBlock {
           $this->setCookie();
           return true;
         }
-        else
-        {
-          // don't block
-          return false;
-        }
       }
+      return false;
     }
     else
     {
