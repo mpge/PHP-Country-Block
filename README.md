@@ -55,3 +55,5 @@ You could essentially put that code into a sort-of-like check.php page, make it 
 Now for the ban hammer...
 
 ![](http://i.imgur.com/yqx3WRB.png)
+
+Note: This hasn't been tested yet. Please email contact@mattgross.net if all works well, or if there is any issues.
