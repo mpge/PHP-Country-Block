@@ -49,3 +49,7 @@ else {
 ```
 
 You could essentially put that code into a sort-of-like check.php page, make it the directory index, and then sent all unblocked requests to the index page. It's completely up to you.
+
+Now for the ban hammer...
+
+![][http://i.imgur.com/yqx3WRB.png]
