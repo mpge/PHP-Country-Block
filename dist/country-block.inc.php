@@ -22,6 +22,9 @@ class countryBlock {
   // Store Visitors IP Address
   private $ip_address = null;
   
+  // Store ipInfo object
+  private $ipInfo = null;
+  
   /**
     * __construct
     *
@@ -38,7 +41,7 @@ class countryBlock {
     include($path_to_script.'ipInfo.inc.php');
     
     // new ipInfo class with api_key from parameters
-    $ipInfo = new ipInfo($api_key);
+    $this->ipInfo = new ipInfo($api_key);
   
     // Save Countries to $countries
     $this->countries = $countries;
@@ -47,7 +50,7 @@ class countryBlock {
     $this->api_key = $api_key;
     
     // Bind Visitors IP Address to variable
-    $ip_address = $ipInfo->getIPAddress();
+    $ip_address = $this->ipInfo->getIPAddress();
     
     // Save IP Address ($ip_address) to $ip_address
     $this->ip_address = $ip_address;
@@ -97,7 +100,7 @@ class countryBlock {
     $ip_address = $this->ip_address;
     
     // Get Country from ipInfo API
-    $userCountry = $ipInfo->getCountry($ip_address);
+    $userCountry = $this->ipInfo->getCountry($ip_address);
     
     // Find Country Code!
     $countryCode = $userCountry['countryCode'];
