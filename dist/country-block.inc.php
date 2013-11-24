@@ -29,6 +29,8 @@ class countryBlock {
     * @param string $apiKey - Your API key
     * @param string $path_to_script - Directory path before the Uses IP Info DB PHP Wrapper
     *
+    * @return true/false - true if ip has been blocked, false if ip has not been blocked and is permitted.
+    * 
     */
   function __construct($countries, $api_key, $path_to_script = null)
   {
@@ -81,8 +83,8 @@ class countryBlock {
     }
     else
     {
-      // don't block
-      return false;
+      // don't block.. Already blocked...
+      return true;
     }
   }
   
