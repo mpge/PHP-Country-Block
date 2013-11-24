@@ -16,11 +16,11 @@ class countryBlock {
   // Store Country
   private $countries = null;
   
-  // Store IPInfoDB API Key
-  private $api_key = null;
-  
   // Store Visitors IP Address
   private $ip_address = null;
+  
+  // Store ipInfo object
+  private $ipInfo = null;
   
   /**
     * __construct
@@ -32,41 +32,29 @@ class countryBlock {
     * @return true/false - true if ip has been blocked, false if ip has not been blocked and is permitted.
     * 
     */
-  function __construct($countries, $api_key, $path_to_script = null)
+  public function __construct($countries, $api_key, $path_to_script = '')
   {
     // Include ipInfo.inc.php with or without path
-    if($path_to_script)
-    {
-      include($path_to_script.'ipInfo.inc.php');
-    }
-    else
-    {
-      include('ipInfo.inc.php');
-    }
+    include($path_to_script.'ipInfo.inc.php');
     
     // new ipInfo class with api_key from parameters
-    $ipInfo = new ipInfo($api_key);
+    $this->ipInfo = new ipInfo($api_key);
   
     // Save Countries to $countries
-    $this->country = $countries;
+    $this->countries = $countries;
     
-    // Save IPInfoDB API Key to $api_key
-    $this->api_key = $api_key;
-    
-    // Bind Visitors IP Address to variable
-    $ip_address = $ipInfo->getIPAddress();
-    
-    // Save IP Address ($ip_address) to $ip_address
-    $this->ip_address = $ip_address;
+    // Save IP Address $ip_address
+    $this->ip_address = $this->ipInfo->getIPAddress();
     
     // Check if cookie exists
-    if(cookieCheck())
+    if($this->cookieCheck())
     {
       // returned true... cookie does not exist
-      foreach($countries as $country)
+      foreach($this->countries as $country)
       {
         // return true or false
-        $blockable = $this->countryCheck($c);
+        $blockable = $this->countryCheck($country);
+        
         // check
         if($blockable)
         {
@@ -74,12 +62,8 @@ class countryBlock {
           $this->setCookie();
           return true;
         }
-        else
-        {
-          // don't block
-          return false;
-        }
       }
+      return false;
     }
     else
     {
@@ -98,19 +82,13 @@ class countryBlock {
     * @return true/false - true if same, false if not
     *
     */
-  function countryCheck($country)
+  protected function countryCheck($country)
   {
-    // Get IP Address from local variable
-    $ip_address = $this->ip_address;
-    
     // Get Country from ipInfo API
-    $userCountry = $ipInfo->getCountry($ip_address);
-    
-    // Find Country Code!
-    $countryCode = $userCountry['countryCode'];
+    $userCountry = $this->ipInfo->getCountry($this->ip_address);
     
     // Compare...
-    if($country == $countryCode)
+    if($country == $userCountry['countryCode'])
     {
       // Should block
       return true;
@@ -130,28 +108,27 @@ class countryBlock {
     * @return true/false - true if not set, false if is set
     *
     */
-  function cookieCheck()
-  {
-    // Get IP Address from local variable
-    $ip_address = $this->ip_address;
-    
-    if(!isset($_COOKIE['ip_not_allowed']))) {
+  protected function cookieCheck()
+  {    
+    if(!isset($_COOKIE['ip_not_allowed'])))
+    {
       return true;
     }
-    else {
+    else
+    {
       return false;
     }
   }
   
   /**
-    * cookieCheck()
+    * setCookie()
     *
     * Sets cookie and returns true
     *
     * @return true
     *
     */
-  function setCookie()
+  protected function setCookie()
   {
     setcookie('ip_not_allowed', 'true');
     $_COOKIE['ip_not_allowed'] = 'true';
