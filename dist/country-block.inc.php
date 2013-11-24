@@ -53,7 +53,7 @@ class countryBlock {
     $this->ip_address = $ip_address;
     
     // Check if cookie exists
-    if(cookieCheck())
+    if($this->cookieCheck())
     {
       // returned true... cookie does not exist
       foreach($this->countries as $country)
@@ -128,10 +128,12 @@ class countryBlock {
     // Get IP Address from local variable
     $ip_address = $this->ip_address;
     
-    if(!isset($_COOKIE['ip_not_allowed']))) {
+    if(!isset($_COOKIE['ip_not_allowed'])))
+    {
       return true;
     }
-    else {
+    else
+    {
       return false;
     }
   }
