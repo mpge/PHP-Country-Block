@@ -17,11 +17,12 @@ $countryBlock = new countryBlock($countries, $api_key);
 
 if($countryBlock) { // returned true
   // Blocked!
+  // Display your access denied content... or redirect...
   header('Location: /access-denied.php');
 }
 else {
   // Show them my awesome page!
-  include "awesome-page.php";
+  include "./awesome-page.php";
 }
 
 ?>
