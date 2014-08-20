@@ -21,7 +21,7 @@
     $countryBlock = new countryBlock($countries, $api_key);
     
     // Check if the user is allowed to be redirected or not.
-    if($countryBlock) {
+    if($countryBlock->isBlocked) {
       // Blocked!
       // Display your access denied content...
       echo "<h2>Access Denied</h2><p>The country you are accessing this website through is not permitted on this website</p>";
