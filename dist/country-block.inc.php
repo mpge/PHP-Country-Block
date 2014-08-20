@@ -63,6 +63,8 @@ class countryBlock
                     $this->setCookie("true");
                     // Change the return line.
                     $this->isBlocked = true;
+                    // Break the loop if already blocked.
+                    break;
                 }
             }
         } else {
