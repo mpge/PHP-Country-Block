@@ -110,7 +110,7 @@ class countryBlock {
     */
   protected function cookieCheck()
   {    
-    if(!isset($_COOKIE['ip_not_allowed'])))
+    if(!isset($_COOKIE['ip_not_allowed']))
     {
       return true;
     }
