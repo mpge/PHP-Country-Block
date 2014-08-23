@@ -58,4 +58,6 @@ Now for the ban hammer...
 
 ![](http://i.imgur.com/yqx3WRB.png)
 
-Note: This hasn't been tested yet. Please email contact@mattgross.net if all works well, or if there is any issues.
+Thanks for viewing this github repo. This script has been tested.
+
+If you, or one of your felow webmasters need a web developer for contract work, please reference my website at [www.mattgross.net](http://mattgross.net/) - This website is currently in development however.
