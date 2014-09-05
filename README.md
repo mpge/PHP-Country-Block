@@ -37,7 +37,7 @@ $api_key = "INSERT-API-KEY-HERE";
 // return true if someone has been blocked. false if not
 $countryBlock = new countryBlock($countries, $api_key);
 
-if($countryBlock) { // returned true
+if($countryBlock->isBlocked === true) { // returned true
   // do whatever
   // you can redirect them to a "You are blocked" page, or simply provide a access denied page.
 }
