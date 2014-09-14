@@ -6,7 +6,7 @@
   <body>
     <?php
     // Require library
-    require_once $_SERVER['DOCUMENT_ROOT']."/dist/country-block.inc.php";
+    require_once "country-block.inc.php";
     
     // Your Block List. This current list blocks  Canada, United States, and Congo.
     $countries = array("CA","US","CG");
@@ -15,7 +15,7 @@
     $api_key = "INSERT-API-KEY-HERE";
     
     // path optional... pass to class as third paramater if required.
-    $path = $_SERVER['DOCUMENT_ROOT']."/dist/";
+    // $path = "./";
     
     // return true if someone has been blocked. false if not
     $countryBlock = new countryBlock($countries, $api_key);
@@ -28,7 +28,7 @@
     }
     else {
       // Show them my awesome page!
-      include "./awesome-page.php";
+      include "awesome-page.php";
     }
   ?>
   </body>
