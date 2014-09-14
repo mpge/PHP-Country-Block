@@ -6,7 +6,7 @@
   <body>
     <?php
     // Require library
-    require_once "country-block.inc.php";
+    require_once "../country-block.inc.php"; // Directory behind (examples/)
     
     // Your Block List. This current list blocks  Canada, United States, and Congo.
     $countries = array("CA","US","CG");
